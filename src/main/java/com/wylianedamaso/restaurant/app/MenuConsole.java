@@ -1,9 +1,12 @@
 package com.wylianedamaso.restaurant.app;
 
+import com.wylianedamaso.restaurant.cardapio.Lanche;
 import com.wylianedamaso.restaurant.pedido.Pedido;
 
 import java.util.Collection;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MenuConsole {
 
@@ -14,15 +17,15 @@ public class MenuConsole {
         System.out.println("1 - Registrar novo pedido");
         System.out.println("2 - Listar pedidos do dia");
         System.out.println("3 - Fechar restaurante");
+        System.out.println("4 - Editar pedido");
+        System.out.println("5 - Adicionar lanche a um pedido");
+        System.out.println("6 - Cancelar pedido");
         System.out.println("0 - Sair");
-        System.out.print("Escolha uma opção: ");
 
     }
 
     public int lerOpcao(){
-        int opcao = scanner.nextInt();
-        scanner.nextLine();
-        return opcao;
+        return lerInteiro("Escolha uma opção: ");
     }
 
     public String lerNomeCliente(){
@@ -35,11 +38,8 @@ public class MenuConsole {
         System.out.println("1 - X-Burger - R$ 16,00");
         System.out.println("2 - X-Salada - R$ 18,00");
         System.out.println("3 - X-Bacon - R$ 22,00");
-        System.out.print("Escolha um lanche: ");
 
-        int opcao = scanner.nextInt();
-        scanner.nextLine();
-        return opcao;
+        return lerInteiro("Escolha um lanche: ");
     }
 
     public void exibirPedido(Pedido pedido) {
@@ -54,11 +54,7 @@ public class MenuConsole {
     }
 
     public boolean desejaAdicionarOutroLanche() {
-        System.out.print("Deseja adicionar outro lanche? (s/n): ");
-        String resposta = scanner.nextLine();
-
-        return resposta.equalsIgnoreCase("s")
-                || resposta.equalsIgnoreCase("sim");
+        return lerRespostaSimNao("Deseja adicionar outro lanche? (s/n): ");
     }
 
     public void exibirListaPedidos(Collection<Pedido> pedidos) {
@@ -86,5 +82,109 @@ public class MenuConsole {
 
     public void exibirOpcaoInvalida() {
         System.out.println("Opção inválida. Tente novamente.");
+    }
+
+    public void personalizarLanche(Lanche lanche) {
+
+        boolean remover = lerRespostaSimNao(
+                "Deseja remover algum ingrediente do lanche? (s/n): ");
+
+        if (remover) {
+
+            if (lerRespostaSimNao("Deseja retirar queijo? (s/n): ")) {
+                lanche.setQueijo(false);
+            }
+
+            if (lerRespostaSimNao("Deseja retirar alface? (s/n): ")) {
+                lanche.setAlface(false);
+            }
+
+            if (lerRespostaSimNao("Deseja retirar tomate? (s/n): ")) {
+                lanche.setTomate(false);
+            }
+
+            if (lerRespostaSimNao("Deseja retirar cebola? (s/n): ")) {
+                lanche.setCebola(false);
+            }
+        }
+    }
+
+    public int lerNumeroPedido() {
+        return lerInteiro("Digite o número do pedido: ");
+    }
+
+    public void exibirItensPedido(Pedido pedido){
+        for (int i = 0; i < pedido.getItens().size(); i++){
+            System.out.println((i + 1) + " - " + pedido.getItens().get(i).getDescricao());
+        }
+    }
+
+    public int lerNumeroItem() {
+        return lerInteiro("Digite o número do lanche que deseja remover: ");
+
+    }
+
+    public void exibirPedidoNaoEncontrado() {
+        System.out.println("Pedido não encontrado.");
+    }
+
+    public void exibirItemRemovido() {
+        System.out.println("Lanche removido com sucesso!");
+    }
+
+    public void exibirErroRemoverItem() {
+        System.out.println("Não foi possível remover o lanche.");
+    }
+
+    public void exibirPedidoCancelado() {
+        System.out.println("Pedido cancelado com sucesso!");
+    }
+
+    public void exibirErroCancelarPedido() {
+        System.out.println("Pedido não encontrado. Não foi possível cancelar.");
+    }
+
+    public void exibirLanchesDiferentes(Set<String> lanchesDiferentes) {
+        System.out.println("Quantidade de lanches diferentes: " + lanchesDiferentes.size());
+
+        for (String lanche : lanchesDiferentes) {
+            System.out.println("- " + lanche);
+        }
+    }
+
+    private int lerInteiro(String mensagem) {
+        while (true) {
+            System.out.print(mensagem);
+
+            try {
+                int numero = scanner.nextInt();
+                scanner.nextLine();
+                return numero;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida! Digite apenas números.");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    private boolean lerRespostaSimNao(String mensagem) {
+        while (true) {
+            System.out.print(mensagem);
+            String resposta = scanner.nextLine();
+
+            if (resposta.equalsIgnoreCase("s") ||
+                    resposta.equalsIgnoreCase("sim")) {
+                return true;
+
+            } else if (resposta.equalsIgnoreCase("n") ||
+                    resposta.equalsIgnoreCase("não") ||
+                    resposta.equalsIgnoreCase("nao")) {
+                return false;
+
+            } else {
+                System.out.println("Resposta inválida! Digite s ou n.");
+            }
+        }
     }
 }

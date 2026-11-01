@@ -1,10 +1,13 @@
 package com.wylianedamaso.restaurant.app;
 
+import com.wylianedamaso.restaurant.cardapio.ItemCardapio;
 import com.wylianedamaso.restaurant.cardapio.Lanche;
+import com.wylianedamaso.restaurant.cardapio.LancheFactory;
 import com.wylianedamaso.restaurant.pedido.GerenciadorPedidos;
 import com.wylianedamaso.restaurant.pedido.Pedido;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class RestauranteFacade {
 
@@ -18,8 +21,8 @@ public class RestauranteFacade {
         return gerenciador.criarPedido(nomeCliente);
     }
 
-    public void adicionarLanche(Pedido pedido, Lanche lanche){
-        pedido.adicionarItem(lanche);
+    public void adicionarLanche(Pedido pedido, ItemCardapio item){
+        pedido.adicionarItem(item);
     }
 
     public double calcularTotalDoDia(){
@@ -38,18 +41,25 @@ public class RestauranteFacade {
     public Lanche criarLanche(int opcao){
         switch (opcao){
             case 1:
-                return new Lanche("X-Burger", 16.00);
-
+                return LancheFactory.xBurger();
             case 2:
-                return new Lanche("X-Salada", 18.00);
-
+                return LancheFactory.xSalada();
             case 3:
-                return new Lanche("X-Bacon", 22.00);
-
+                return LancheFactory.xBacon();
             default:
                 throw new IllegalArgumentException("Opção de lanche inválida");
-
         }
     }
 
+    public boolean removerItem(Pedido pedido, int numeroEscolhido){
+        return pedido.removerItem(numeroEscolhido);
+    }
+
+    public boolean cancelarPedido(int numero){
+        return gerenciador.cancelarPedido(numero);
+    }
+
+    public Set<String> listarLanchesDoDia(){
+        return gerenciador.listarLanchesDiferentes();
+    }
 }
