@@ -1,6 +1,8 @@
-package com.wylianedamaso.restaurant.cardapio;
+package com.wylianedamaso.restaurant.cardapio.adicionais;
 
-public class ComBaconExtra implements ItemCardapio{
+import com.wylianedamaso.restaurant.cardapio.ItemCardapio;
+
+public class ComBaconExtra implements ItemCardapio {
 
     private ItemCardapio itemEmbrulhado;
 

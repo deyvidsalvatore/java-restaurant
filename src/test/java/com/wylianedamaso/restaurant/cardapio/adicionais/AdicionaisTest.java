@@ -1,5 +1,7 @@
-package com.wylianedamaso.restaurant.cardapio;
+package com.wylianedamaso.restaurant.cardapio.adicionais;
 
+import com.wylianedamaso.restaurant.cardapio.ItemCardapio;
+import com.wylianedamaso.restaurant.cardapio.LancheFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
