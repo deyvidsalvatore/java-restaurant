@@ -46,6 +46,7 @@ public class Main {
                     double total = restaurante.calcularTotalDoDia();
 
                     menu.exibirFechamentoDoDia(total);
+                    menu.exibirLanchesDiferentes(restaurante.listarLanchesDoDia());
 
                     break;
 

@@ -7,6 +7,7 @@ import com.wylianedamaso.restaurant.pedido.GerenciadorPedidos;
 import com.wylianedamaso.restaurant.pedido.Pedido;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class RestauranteFacade {
 
@@ -56,5 +57,9 @@ public class RestauranteFacade {
 
     public boolean cancelarPedido(int numero){
         return gerenciador.cancelarPedido(numero);
+    }
+
+    public Set<String> listarLanchesDoDia(){
+        return gerenciador.listarLanchesDiferentes();
     }
 }

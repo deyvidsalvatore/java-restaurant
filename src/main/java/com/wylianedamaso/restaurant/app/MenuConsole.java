@@ -5,6 +5,7 @@ import com.wylianedamaso.restaurant.pedido.Pedido;
 
 import java.util.Collection;
 import java.util.Scanner;
+import java.util.Set;
 
 public class MenuConsole {
 
@@ -158,5 +159,13 @@ public class MenuConsole {
 
     public void exibirErroCancelarPedido() {
         System.out.println("Pedido não encontrado. Não foi possível cancelar.");
+    }
+
+    public void exibirLanchesDiferentes(Set<String> lanchesDiferentes) {
+        System.out.println("Quantidade de lanches diferentes: " + lanchesDiferentes.size());
+
+        for (String lanche : lanchesDiferentes) {
+            System.out.println("- " + lanche);
+        }
     }
 }

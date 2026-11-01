@@ -1,12 +1,27 @@
 package com.wylianedamaso.restaurant.pedido;
 
+import com.wylianedamaso.restaurant.cardapio.ItemCardapio;
+
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GerenciadorPedidos {
     private HashMap<Integer, Pedido> pedidos = new HashMap<>();
 
     private int contadorPedidos = 1;
+
+    public Set<String> listarLanchesDiferentes() {
+        Set<String> lanchesDiferentes = new HashSet<>();
+        for (Pedido pedido : pedidos.values()){
+            for (ItemCardapio item : pedido.getItens()){
+                lanchesDiferentes.add(item.getDescricao());
+            }
+        }
+
+        return lanchesDiferentes;
+    }
 
     public Pedido criarPedido(String nomeCliente) {
         Pedido novo = new Pedido(contadorPedidos, nomeCliente);
