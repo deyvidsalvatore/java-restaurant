@@ -1,6 +1,6 @@
 package com.wylianedamaso.restaurant.cardapio;
 
-public class Lanche {
+public class Lanche implements  ItemCardapio{
     private String nome;
     private double preco;
 
@@ -20,6 +20,12 @@ public class Lanche {
         this.nome = nome;
     }
 
+    @Override
+    public String getDescricao() {
+        return getNome();
+    }
+
+    @Override
     public double getPreco() {
         return preco;
     }

@@ -55,7 +55,6 @@ public class Main {
                     menu.exibirOpcaoInvalida();
                     break;
 
-
             }
         }
     }

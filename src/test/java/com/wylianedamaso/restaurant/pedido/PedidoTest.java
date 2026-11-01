@@ -27,7 +27,7 @@ public class PedidoTest {
         pedido.adicionarItem(lanche);
 
         assertEquals(1, pedido.getItens().size());
-        assertEquals("X-Burger", pedido.getItens().get(0).getNome());
+        assertEquals("X-Burger", pedido.getItens().get(0).getDescricao());
     }
 
     @Test
