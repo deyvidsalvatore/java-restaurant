@@ -26,6 +26,8 @@ public class Main {
 
                         Lanche lanche = restaurante.criarLanche(opcaoLanche);
 
+                        menu.personalizarLanche(lanche);
+
                         restaurante.adicionarLanche(pedido, lanche);
 
                         adicionarMais = menu.desejaAdicionarOutroLanche();

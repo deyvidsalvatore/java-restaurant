@@ -1,5 +1,6 @@
 package com.wylianedamaso.restaurant.app;
 
+import com.wylianedamaso.restaurant.cardapio.Lanche;
 import com.wylianedamaso.restaurant.pedido.Pedido;
 
 import java.util.Collection;
@@ -87,4 +88,33 @@ public class MenuConsole {
     public void exibirOpcaoInvalida() {
         System.out.println("Opção inválida. Tente novamente.");
     }
+
+    public void personalizarLanche(Lanche lanche) {
+        System.out.println("Deseja remover algum ingrediente do lanche? (s/n)");
+        String resposta = scanner.nextLine();
+
+        if (resposta.equalsIgnoreCase("s") || resposta.equalsIgnoreCase("sim")){
+            System.out.println("Deseja retirar queijo? (s/n)");
+            resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("s") || resposta.equalsIgnoreCase("sim")) {
+                lanche.setQueijo(false);
+            }
+            System.out.println("Deseja retirar alface? (s/n)");
+            resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("s") || resposta.equalsIgnoreCase("sim")) {
+                lanche.setAlface(false);
+            }
+            System.out.println("Deseja retirar tomate? (s/n)");
+            resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("s") || resposta.equalsIgnoreCase("sim")) {
+                lanche.setTomate(false);
+            }
+            System.out.println("Deseja retirar cebola? (s/n)");
+            resposta = scanner.nextLine();
+            if (resposta.equalsIgnoreCase("s") || resposta.equalsIgnoreCase("sim")) {
+                lanche.setCebola(false);
+            }
+        }
+    }
+
 }
