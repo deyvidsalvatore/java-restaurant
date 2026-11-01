@@ -47,4 +47,16 @@ public class Pedido {
         }
         return total;
     }
+
+    public boolean removerItem(int numeroEscolhido) {
+        int indice = numeroEscolhido - 1;
+
+        if (itens.isEmpty()) {
+            return false;
+        } else if (indice >= 0 && indice < itens.size()) {
+            itens.remove(indice);
+            return true;
+        }
+        return false;
+    }
 }

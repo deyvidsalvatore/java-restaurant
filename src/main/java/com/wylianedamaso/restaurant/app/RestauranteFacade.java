@@ -50,4 +50,11 @@ public class RestauranteFacade {
         }
     }
 
+    public boolean removerItem(Pedido pedido, int numeroEscolhido){
+        return pedido.removerItem(numeroEscolhido);
+    }
+
+    public boolean cancelarPedido(int numero){
+        return gerenciador.cancelarPedido(numero);
+    }
 }

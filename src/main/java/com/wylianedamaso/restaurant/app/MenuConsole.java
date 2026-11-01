@@ -15,6 +15,9 @@ public class MenuConsole {
         System.out.println("1 - Registrar novo pedido");
         System.out.println("2 - Listar pedidos do dia");
         System.out.println("3 - Fechar restaurante");
+        System.out.println("4 - Editar pedido");
+        System.out.println("5 - Adicionar lanche a um pedido");
+        System.out.println("6 - Cancelar pedido");
         System.out.println("0 - Sair");
         System.out.print("Escolha uma opção: ");
 
@@ -117,4 +120,43 @@ public class MenuConsole {
         }
     }
 
+    public int lerNumeroPedido() {
+        System.out.print("Digite o número do pedido: ");
+        int numero = scanner.nextInt();
+        scanner.nextLine();
+        return numero;
+    }
+
+    public void exibirItensPedido(Pedido pedido){
+        for (int i = 0; i < pedido.getItens().size(); i++){
+            System.out.println((i + 1) + " - " + pedido.getItens().get(i).getDescricao());
+        }
+    }
+
+    public int lerNumeroItem() {
+        System.out.print("Digite o número do lanche que deseja remover: ");
+        int numero = scanner.nextInt();
+        scanner.nextLine();
+        return numero;
+    }
+
+    public void exibirPedidoNaoEncontrado() {
+        System.out.println("Pedido não encontrado.");
+    }
+
+    public void exibirItemRemovido() {
+        System.out.println("Lanche removido com sucesso!");
+    }
+
+    public void exibirErroRemoverItem() {
+        System.out.println("Não foi possível remover o lanche.");
+    }
+
+    public void exibirPedidoCancelado() {
+        System.out.println("Pedido cancelado com sucesso!");
+    }
+
+    public void exibirErroCancelarPedido() {
+        System.out.println("Pedido não encontrado. Não foi possível cancelar.");
+    }
 }

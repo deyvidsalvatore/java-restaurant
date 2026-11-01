@@ -32,4 +32,8 @@ public class GerenciadorPedidos {
         }
         return total;
     }
+
+    public boolean cancelarPedido(int numero){
+        return pedidos.remove(numero) != null;
+    }
 }
