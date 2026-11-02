@@ -1,4 +1,4 @@
-package com.wylianedamaso.restaurant.app;
+package com.wylianedamaso.restaurant.menu;
 
 import com.wylianedamaso.restaurant.cardapio.Lanche;
 import com.wylianedamaso.restaurant.pedido.Pedido;

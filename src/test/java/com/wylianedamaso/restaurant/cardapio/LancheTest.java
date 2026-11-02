@@ -1,14 +1,25 @@
 package com.wylianedamaso.restaurant.cardapio;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LancheTest {
 
+    // O 'Lanche' também dá para reaproveitar, dessa vez usando o AfterEach para limpar também
+    // After Each -> Quando termina um teste é executado uma ação antes de ir para o próximo teste, então você
+    // pode usar para limpar variáveis
+    private Lanche lanche;
+
+    @AfterEach
+    public void afterEach() {
+        lanche = null;
+    }
+
     @Test
     void deveCriarLancheComDadosValidos(){
-        Lanche lanche = new Lanche("X-Burger", 16.00);
+        lanche = new Lanche("X-Burger", 16.00);
         assertEquals("X-Burger", lanche.getNome());
         assertEquals(16.00, lanche.getPreco(), 0.001);
     }
@@ -41,7 +52,7 @@ public class LancheTest {
 
     @Test
     void deveRetirarCebolaDaDescricaoDoLanche() {
-        Lanche lanche = new Lanche("X-Bacon", 22.00);
+        lanche = new Lanche("X-Bacon", 22.00);
 
         lanche.setCebola(false);
 
@@ -50,7 +61,7 @@ public class LancheTest {
 
     @Test
     void deveRetirarMultiplosIngredientesDaDescricaoDoLanche() {
-        Lanche lanche = new Lanche("X-Bacon", 22.00);
+        lanche = new Lanche("X-Bacon", 22.00);
 
         lanche.setCebola(false);
         lanche.setTomate(false);

@@ -3,8 +3,8 @@ package com.wylianedamaso.restaurant.cardapio.adicionais;
 import com.wylianedamaso.restaurant.cardapio.ItemCardapio;
 
 public class ComBaconExtra implements ItemCardapio {
-
-    private ItemCardapio itemEmbrulhado;
+    // Final pois o objeto em si não vai mudar, apenas o atributo dentro dele
+    private final ItemCardapio itemEmbrulhado;
 
     public ComBaconExtra (ItemCardapio item){
         this.itemEmbrulhado = item;

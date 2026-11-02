@@ -5,10 +5,12 @@ import com.wylianedamaso.restaurant.cardapio.ItemCardapio;
 import java.util.ArrayList;
 
 public class Pedido {
-    private int numero;
+    // Final - Pois o número não vai mudar, ele sempre vai indo de um e um
+    private final int numero;
     private String nomeCliente;
 
-    private ArrayList<ItemCardapio> itens = new ArrayList<>();
+    // Os Itens também são final pois a declaração já inicia vazia, portanto os métodos posteriores vão apenas adicionar valores
+    private final ArrayList<ItemCardapio> itens = new ArrayList<>();
 
     public Pedido(int numero, String nomeCliente){
         this.numero = numero;

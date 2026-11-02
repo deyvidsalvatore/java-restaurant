@@ -25,7 +25,12 @@ public class Lanche implements  ItemCardapio{
     }
 
     public void setPreco(double preco) {
-        if (preco < 0){
+        //        if (preco < 0){
+        //            throw new IllegalArgumentException("Preço inválido");
+        //        }
+        // No código acima o usuário pode inserior valores monetários de NaN e POSITIVE_INFINITY que são valores absurdos
+        // Então da para gente usar duas verificações
+        if (!Double.isFinite(preco) || preco < 0) {
             throw new IllegalArgumentException("Preço inválido");
         }
         this.preco = preco;

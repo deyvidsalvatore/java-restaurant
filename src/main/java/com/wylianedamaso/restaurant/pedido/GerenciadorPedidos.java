@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GerenciadorPedidos {
-    private HashMap<Integer, Pedido> pedidos = new HashMap<>();
+
+    // Final também pois o objeto pedidos não vai mudar, apenas vai ser inserido novos valores referenciando esse objeto
+    private final HashMap<Integer, Pedido> pedidos = new HashMap<>();
 
     private int contadorPedidos = 1;
 
