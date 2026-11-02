@@ -44,7 +44,11 @@ public class MenuConsole {
 
     public void exibirPedido(Pedido pedido) {
         System.out.println("Cliente: " + pedido.getNomeCliente());
-        System.out.println("Total: R$ " + pedido.calcularTotal());
+
+        System.out.println("Itens do pedido:");
+        exibirItensPedido(pedido);
+
+        System.out.printf("Total: R$ %.2f%n", pedido.calcularTotal());
     }
 
     public void  exibirFechamentoDoDia(double total){

@@ -6,6 +6,12 @@ A aplicação simula o gerenciamento de um restaurante, permitindo cadastrar ped
 
 O desenvolvimento foi realizado em etapas, acompanhando os requisitos propostos pela avaliação.
 
+## 🎥 Demonstração do projeto
+
+Confira o vídeo de apresentação do Sistema de Restaurante, com a demonstração do funcionamento, organização do código, aplicação dos padrões de projeto e execução dos testes automatizados.
+
+▶️ **[Assistir à demonstração no YouTube](https://www.youtube.com/watch?v=_zQfBi1HjJ4)**
+
 ## 🚀 Funcionalidades
 
 - Cadastro de pedidos com identificação do cliente.
